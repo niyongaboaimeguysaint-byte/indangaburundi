@@ -11,7 +11,7 @@ const milestones = [{
   description: "Lancement de nos premières chansons, marquant le début d'une présence numérique culturelle forte",
   icon: Globe
 }, {
-  year: "2023",
+  year: "2020",
   title: "Reconnaissance",
   description: "Partenariats avec des institutions culturelles internationales",
   icon: Award
