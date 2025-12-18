@@ -28,8 +28,12 @@ const Navigation = () => {
   return <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
         <div className="flex items-center justify-between h-16 sm:h-20">
-          <a href="#" className="flex items-center">
+          <a href="#" className="flex items-center gap-3">
             <img alt="Logo INDANGABURUNDI - Shaza Mu Karanga" src="/lovable-uploads/5ce7b6bf-73fc-42de-a3a1-4e9680cc765e.jpg" className="h-10 sm:h-12 w-auto opacity-100 shadow-lg rounded-md object-scale-down" />
+            <span className="font-display font-bold text-lg sm:text-xl">
+              <span className="text-primary">INDANGA</span>
+              <span className="text-secondary">BURUNDI</span>
+            </span>
           </a>
 
           {/* Desktop Navigation */}
