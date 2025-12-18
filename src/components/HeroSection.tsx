@@ -1,16 +1,10 @@
 import heroImage from "@/assets/hero-drums.jpg";
 import logo from "@/assets/logo-indangaburundi.png";
-
 const HeroSection = () => {
-  return (
-    <section id="hero" className="relative min-h-screen flex items-center">
+  return <section id="hero" className="relative min-h-screen flex items-center">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
-        <img
-          src={heroImage}
-          alt="Tambourinaires du Burundi"
-          className="w-full h-full object-cover"
-        />
+        <img src={heroImage} alt="Tambourinaires du Burundi" className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/80 to-primary/60" />
       </div>
 
@@ -19,11 +13,7 @@ const HeroSection = () => {
         <div className="max-w-3xl">
           {/* Logo Badge */}
           <div className="flex items-center gap-4 mb-6 animate-fade-up opacity-0">
-            <img 
-              src={logo} 
-              alt="Logo INDANGABURUNDI - Shaza Mu Karanga" 
-              className="h-20 sm:h-24 w-auto shadow-lg"
-            />
+            <img alt="Logo INDANGABURUNDI - Shaza Mu Karanga" className="h-20 sm:h-24 w-auto shadow-lg" src="/lovable-uploads/f803a26a-61a2-4f71-bb03-938d5c12bce3.png" />
           </div>
           
           <h1 className="font-display text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-primary-foreground leading-tight mb-6 animate-fade-up opacity-0 stagger-1">
@@ -40,16 +30,10 @@ const HeroSection = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 animate-fade-up opacity-0 stagger-3">
-            <a
-              href="#culture"
-              className="btn-secondary text-center"
-            >
+            <a href="#culture" className="btn-secondary text-center">
               Explorer la culture
             </a>
-            <a
-              href="#assistant"
-              className="bg-primary-foreground/10 text-primary-foreground border border-primary-foreground/30 px-6 sm:px-8 py-3 sm:py-4 rounded-full font-medium transition-all duration-300 hover:bg-primary-foreground/20 text-center"
-            >
+            <a href="#assistant" className="bg-primary-foreground/10 text-primary-foreground border border-primary-foreground/30 px-6 sm:px-8 py-3 sm:py-4 rounded-full font-medium transition-all duration-300 hover:bg-primary-foreground/20 text-center">
               Parler à l'Assistant IA
             </a>
           </div>
@@ -62,8 +46,6 @@ const HeroSection = () => {
           <div className="w-1.5 h-3 bg-primary-foreground/70 rounded-full animate-pulse" />
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default HeroSection;
