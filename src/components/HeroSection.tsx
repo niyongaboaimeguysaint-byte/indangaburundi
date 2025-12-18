@@ -12,8 +12,8 @@ const HeroSection = () => {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 pt-24 sm:pt-32 pb-16 sm:pb-20">
         <div className="max-w-3xl">
           {/* Logo Badge */}
-          <div className="flex items-center gap-4 mb-6 animate-fade-up opacity-0">
-            <img alt="Logo INDANGABURUNDI - Shaza Mu Karanga" className="h-20 sm:h-24 w-auto shadow-lg" src="/lovable-uploads/f803a26a-61a2-4f71-bb03-938d5c12bce3.png" />
+          <div className="flex items-center gap-4 mb-6 animate-fade-up mx-0 my-0 px-0 opacity-65">
+            <img alt="Logo INDANGABURUNDI - Shaza Mu Karanga" className="h-20 sm:h-24 w-auto shadow-lg" src="/lovable-uploads/6d00b0a7-c3cd-497c-85d0-e47f6d9e737c.jpg" />
           </div>
           
           <h1 className="font-display text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-primary-foreground leading-tight mb-6 animate-fade-up opacity-0 stagger-1">
