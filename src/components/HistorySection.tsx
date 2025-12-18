@@ -6,7 +6,7 @@ const milestones = [{
   description: "Création de l'association par des passionnés de la culture burundaise",
   icon: Users
 }, {
-  year: "2018",
+  year: "2014",
   title: "Expansion Digitale",
   description: "Lancement de nos premières chansons, marquant le début d'une présence numérique culturelle forte",
   icon: Globe
