@@ -8,7 +8,7 @@ const milestones = [{
 }, {
   year: "2020",
   title: "Expansion Digitale",
-  description: "Lancement des premières initiatives numériques pour la diaspora",
+  description: "Lancement de nos premières chansons, marquant le début d'une présence numérique culturelle forte",
   icon: Globe
 }, {
   year: "2023",
