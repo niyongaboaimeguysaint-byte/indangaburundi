@@ -1,39 +1,49 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import logo from "@/assets/logo-indangaburundi.jpeg";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const navLinks = [
     { name: "Accueil", href: "#hero" },
-    { name: "À propos", href: "#about" },
+    { name: "Histoire", href: "#history" },
     { name: "Culture", href: "#culture" },
+    { name: "Quiz", href: "#quiz" },
+    { name: "Médias", href: "#media" },
     { name: "Assistant IA", href: "#assistant" },
     { name: "Contact", href: "#contact" },
   ];
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12">
-        <div className="flex items-center justify-between h-20">
-          <a href="#" className="font-display text-2xl font-bold text-primary">
-            INDANGA<span className="text-secondary">BURUNDI</span>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
+        <div className="flex items-center justify-between h-16 sm:h-20">
+          <a href="#" className="flex items-center gap-3">
+            <img 
+              src={logo} 
+              alt="Logo INDANGABURUNDI" 
+              className="h-10 sm:h-12 w-auto rounded-lg"
+            />
+            <span className="font-display text-lg sm:text-xl font-bold text-primary hidden sm:block">
+              INDANGA<span className="text-secondary">BURUNDI</span>
+            </span>
           </a>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden lg:flex items-center gap-6">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="text-muted-foreground hover:text-primary transition-colors duration-300 font-medium"
+                className="text-muted-foreground hover:text-primary transition-colors duration-300 font-medium text-sm"
               >
                 {link.name}
               </a>
             ))}
             <a
               href="#assistant"
-              className="btn-primary text-sm px-6 py-3"
+              className="btn-primary text-sm px-5 py-2.5"
             >
               Parler à l'IA
             </a>
@@ -42,7 +52,7 @@ const Navigation = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 text-foreground"
+            className="lg:hidden p-2 text-foreground"
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -50,14 +60,14 @@ const Navigation = () => {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden py-6 border-t border-border animate-fade-in">
-            <div className="flex flex-col gap-4">
+          <div className="lg:hidden py-4 border-t border-border animate-fade-in">
+            <div className="flex flex-col gap-2">
               {navLinks.map((link) => (
                 <a
                   key={link.name}
                   href={link.href}
                   onClick={() => setIsOpen(false)}
-                  className="text-foreground hover:text-primary transition-colors duration-300 font-medium py-2"
+                  className="text-foreground hover:text-primary transition-colors duration-300 font-medium py-2 px-2"
                 >
                   {link.name}
                 </a>
@@ -65,7 +75,7 @@ const Navigation = () => {
               <a
                 href="#assistant"
                 onClick={() => setIsOpen(false)}
-                className="btn-primary text-center mt-4"
+                className="btn-primary text-center mt-2"
               >
                 Parler à l'IA
               </a>

@@ -1,4 +1,5 @@
 import heroImage from "@/assets/hero-drums.jpg";
+import logo from "@/assets/logo-indangaburundi.jpeg";
 
 const HeroSection = () => {
   return (
@@ -14,13 +15,21 @@ const HeroSection = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 pt-32 pb-20">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 pt-24 sm:pt-32 pb-16 sm:pb-20">
         <div className="max-w-3xl">
-          <span className="inline-block px-4 py-2 bg-secondary/20 text-secondary rounded-full text-sm font-medium mb-6 animate-fade-up opacity-0">
-            Association Culturelle Burundaise
-          </span>
+          {/* Logo Badge */}
+          <div className="flex items-center gap-4 mb-6 animate-fade-up opacity-0">
+            <img 
+              src={logo} 
+              alt="Logo INDANGABURUNDI" 
+              className="h-16 sm:h-20 w-auto rounded-xl shadow-lg"
+            />
+            <span className="px-4 py-2 bg-secondary/20 text-secondary rounded-full text-sm font-medium">
+              Shaza Mu Karanga
+            </span>
+          </div>
           
-          <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold text-primary-foreground leading-tight mb-6 animate-fade-up opacity-0 stagger-1">
+          <h1 className="font-display text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-primary-foreground leading-tight mb-6 animate-fade-up opacity-0 stagger-1">
             La culture burundaise,
             <br />
             <span className="text-secondary">expliquée, transmise</span>
@@ -28,7 +37,7 @@ const HeroSection = () => {
             et vivante.
           </h1>
 
-          <p className="text-primary-foreground/80 text-lg md:text-xl max-w-xl mb-10 animate-fade-up opacity-0 stagger-2">
+          <p className="text-primary-foreground/80 text-base sm:text-lg md:text-xl max-w-xl mb-8 sm:mb-10 animate-fade-up opacity-0 stagger-2">
             Découvrez la richesse des traditions, des danses et de la sagesse du Burundi. 
             Un voyage culturel guidé par l'intelligence artificielle.
           </p>
@@ -42,7 +51,7 @@ const HeroSection = () => {
             </a>
             <a
               href="#assistant"
-              className="bg-primary-foreground/10 text-primary-foreground border border-primary-foreground/30 px-8 py-4 rounded-full font-medium transition-all duration-300 hover:bg-primary-foreground/20 text-center"
+              className="bg-primary-foreground/10 text-primary-foreground border border-primary-foreground/30 px-6 sm:px-8 py-3 sm:py-4 rounded-full font-medium transition-all duration-300 hover:bg-primary-foreground/20 text-center"
             >
               Parler à l'Assistant IA
             </a>
@@ -51,7 +60,7 @@ const HeroSection = () => {
       </div>
 
       {/* Scroll Indicator */}
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-float">
+      <div className="absolute bottom-6 sm:bottom-10 left-1/2 -translate-x-1/2 animate-float hidden sm:block">
         <div className="w-8 h-12 rounded-full border-2 border-primary-foreground/50 flex items-start justify-center p-2">
           <div className="w-1.5 h-3 bg-primary-foreground/70 rounded-full animate-pulse" />
         </div>
