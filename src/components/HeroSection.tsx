@@ -1,5 +1,5 @@
 import heroImage from "@/assets/hero-drums.jpg";
-import logo from "@/assets/logo-indangaburundi.jpeg";
+import logo from "@/assets/logo-indangaburundi.png";
 
 const HeroSection = () => {
   return (
