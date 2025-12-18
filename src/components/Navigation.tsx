@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
-import logo from "@/assets/logo-indangaburundi.jpeg";
+import logo from "@/assets/logo-indangaburundi.png";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
