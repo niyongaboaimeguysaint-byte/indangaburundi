@@ -21,12 +21,9 @@ const HeroSection = () => {
           <div className="flex items-center gap-4 mb-6 animate-fade-up opacity-0">
             <img 
               src={logo} 
-              alt="Logo INDANGABURUNDI" 
-              className="h-16 sm:h-20 w-auto rounded-xl shadow-lg"
+              alt="Logo INDANGABURUNDI - Shaza Mu Karanga" 
+              className="h-20 sm:h-24 w-auto shadow-lg"
             />
-            <span className="px-4 py-2 bg-secondary/20 text-secondary rounded-full text-sm font-medium">
-              Shaza Mu Karanga
-            </span>
           </div>
           
           <h1 className="font-display text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-primary-foreground leading-tight mb-6 animate-fade-up opacity-0 stagger-1">
