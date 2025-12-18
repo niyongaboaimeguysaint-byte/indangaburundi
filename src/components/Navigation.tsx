@@ -19,15 +19,12 @@ const Navigation = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
         <div className="flex items-center justify-between h-16 sm:h-20">
-          <a href="#" className="flex items-center gap-3">
+          <a href="#" className="flex items-center">
             <img 
               src={logo} 
-              alt="Logo INDANGABURUNDI" 
-              className="h-10 sm:h-12 w-auto rounded-lg"
+              alt="Logo INDANGABURUNDI - Shaza Mu Karanga" 
+              className="h-12 sm:h-14 w-auto"
             />
-            <span className="font-display text-lg sm:text-xl font-bold text-primary hidden sm:block">
-              INDANGA<span className="text-secondary">BURUNDI</span>
-            </span>
           </a>
 
           {/* Desktop Navigation */}
