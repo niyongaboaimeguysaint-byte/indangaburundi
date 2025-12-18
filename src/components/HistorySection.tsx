@@ -1,36 +1,28 @@
 import logo from "@/assets/logo-indangaburundi.jpeg";
 import { Calendar, Users, Globe, Award } from "lucide-react";
-
-const milestones = [
-  {
-    year: "2018",
-    title: "Fondation",
-    description: "Création de l'association par des passionnés de la culture burundaise",
-    icon: Users,
-  },
-  {
-    year: "2020",
-    title: "Expansion Digitale",
-    description: "Lancement des premières initiatives numériques pour la diaspora",
-    icon: Globe,
-  },
-  {
-    year: "2023",
-    title: "Reconnaissance",
-    description: "Partenariats avec des institutions culturelles internationales",
-    icon: Award,
-  },
-  {
-    year: "2024",
-    title: "Innovation IA",
-    description: "Premier assistant culturel intelligent dédié au Burundi",
-    icon: Calendar,
-  },
-];
-
+const milestones = [{
+  year: "2018",
+  title: "Fondation",
+  description: "Création de l'association par des passionnés de la culture burundaise",
+  icon: Users
+}, {
+  year: "2020",
+  title: "Expansion Digitale",
+  description: "Lancement des premières initiatives numériques pour la diaspora",
+  icon: Globe
+}, {
+  year: "2023",
+  title: "Reconnaissance",
+  description: "Partenariats avec des institutions culturelles internationales",
+  icon: Award
+}, {
+  year: "2024",
+  title: "Innovation IA",
+  description: "Premier assistant culturel intelligent dédié au Burundi",
+  icon: Calendar
+}];
 const HistorySection = () => {
-  return (
-    <section id="history" className="section-padding bg-primary text-primary-foreground">
+  return <section id="history" className="section-padding bg-primary text-primary-foreground">
       <div className="max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Content Column */}
@@ -59,8 +51,7 @@ const HistorySection = () => {
 
             {/* Timeline */}
             <div className="space-y-6">
-              {milestones.map((milestone, index) => (
-                <div key={index} className="flex gap-4 items-start">
+              {milestones.map((milestone, index) => <div key={index} className="flex gap-4 items-start">
                   <div className="w-12 h-12 rounded-xl bg-secondary/20 flex items-center justify-center flex-shrink-0">
                     <milestone.icon className="w-6 h-6 text-secondary" />
                   </div>
@@ -73,8 +64,7 @@ const HistorySection = () => {
                       {milestone.description}
                     </p>
                   </div>
-                </div>
-              ))}
+                </div>)}
             </div>
           </div>
 
@@ -82,11 +72,7 @@ const HistorySection = () => {
           <div className="flex justify-center lg:justify-end">
             <div className="relative">
               <div className="w-80 h-80 md:w-96 md:h-96 rounded-3xl overflow-hidden shadow-2xl">
-                <img
-                  src={logo}
-                  alt="Logo INDANGABURUNDI"
-                  className="w-full h-full object-contain bg-foreground/95"
-                />
+                <img alt="Logo INDANGABURUNDI" className="w-full h-full object-contain bg-foreground/95" src="/lovable-uploads/a24d6bd3-4fc5-442d-b873-9adb130d2b30.png" />
               </div>
               
               {/* Decorative elements */}
@@ -96,8 +82,6 @@ const HistorySection = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default HistorySection;
