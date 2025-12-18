@@ -1,4 +1,4 @@
-import logo from "@/assets/logo-indangaburundi.jpeg";
+import logoGold from "@/assets/logo-gold.jpeg";
 import { Calendar, Users, Globe, Award } from "lucide-react";
 const milestones = [{
   year: "2018",
@@ -72,7 +72,7 @@ const HistorySection = () => {
           <div className="flex justify-center lg:justify-end">
             <div className="relative">
               <div className="w-80 h-80 md:w-96 md:h-96 rounded-3xl overflow-hidden shadow-2xl">
-                <img alt="Logo INDANGABURUNDI" className="w-full h-full object-contain bg-foreground/95" src="/lovable-uploads/a24d6bd3-4fc5-442d-b873-9adb130d2b30.png" />
+                <img alt="Logo INDANGABURUNDI" className="w-full h-full object-cover" src={logoGold} />
               </div>
               
               {/* Decorative elements */}
