@@ -1,7 +1,7 @@
 import logoGold from "@/assets/logo-gold.jpeg";
 import { Calendar, Users, Globe, Award } from "lucide-react";
 const milestones = [{
-  year: "2018",
+  year: "2014",
   title: "Fondation",
   description: "Création de l'association par des passionnés de la culture burundaise",
   icon: Users
