@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Mail, MessageSquare, Users, Send } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import logoGold from "@/assets/logo-gold.jpeg";
 
 const ContactSection = () => {
   const { toast } = useToast();
@@ -44,8 +45,13 @@ const ContactSection = () => {
   ];
 
   return (
-    <section id="contact" className="section-padding bg-background">
-      <div className="max-w-7xl mx-auto">
+    <section id="contact" className="section-padding bg-background relative overflow-hidden">
+      {/* Background Logo */}
+      <div className="absolute inset-0 flex items-center justify-center opacity-5 pointer-events-none">
+        <img src={logoGold} alt="" className="w-[800px] h-auto object-contain" />
+      </div>
+      
+      <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="inline-block px-4 py-2 bg-secondary/20 text-secondary rounded-full text-sm font-medium mb-4">
