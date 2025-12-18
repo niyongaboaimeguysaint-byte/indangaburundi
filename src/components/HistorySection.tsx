@@ -44,9 +44,7 @@ const HistorySection = () => {
             </p>
 
             <p className="text-primary-foreground/80 text-lg mb-10 leading-relaxed">
-              Fondée par des membres de la diaspora burundaise, notre association réunit 
-              artistes, historiens, éducateurs et technologues autour d'un objectif commun: 
-              faire rayonner la culture burundaise dans le monde entier.
+              L'association Culturelle INDANGABURUNDI est fondée par les jeunes burundaises.
             </p>
 
             {/* Timeline */}
