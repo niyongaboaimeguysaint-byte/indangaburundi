@@ -29,7 +29,7 @@ const Navigation = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
         <div className="flex items-center justify-between h-16 sm:h-20">
           <a href="#" className="flex items-center">
-            <img alt="Logo INDANGABURUNDI - Shaza Mu Karanga" src="/lovable-uploads/5ce7b6bf-73fc-42de-a3a1-4e9680cc765e.jpg" className="h-12 sm:h-14 w-auto opacity-100 shadow-lg rounded-md object-scale-down" />
+            <img alt="Logo INDANGABURUNDI - Shaza Mu Karanga" src="/lovable-uploads/5ce7b6bf-73fc-42de-a3a1-4e9680cc765e.jpg" className="h-10 sm:h-12 w-auto opacity-100 shadow-lg rounded-md object-scale-down" />
           </a>
 
           {/* Desktop Navigation */}

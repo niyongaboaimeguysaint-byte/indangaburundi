@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Send, Sparkles, MessageCircle, Globe, Loader2 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
+import logoGold from "@/assets/logo-gold.jpeg";
 
 const AIAssistantSection = () => {
   const [message, setMessage] = useState("");
@@ -82,8 +83,17 @@ const AIAssistantSection = () => {
   };
 
   return (
-    <section id="assistant" className="section-padding bg-muted">
-      <div className="max-w-7xl mx-auto">
+    <section id="assistant" className="section-padding bg-muted relative overflow-hidden">
+      {/* Animated Background Logo */}
+      <div className="absolute inset-0 flex items-center justify-center opacity-10 pointer-events-none">
+        <img 
+          src={logoGold} 
+          alt="" 
+          className="w-[600px] h-auto object-contain animate-float" 
+        />
+      </div>
+      
+      <div className="max-w-7xl mx-auto relative z-10">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-start">
           {/* Info Column */}
           <div>
