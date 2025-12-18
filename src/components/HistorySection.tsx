@@ -44,7 +44,7 @@ const HistorySection = () => {
             </p>
 
             <p className="text-primary-foreground/80 text-lg mb-10 leading-relaxed">
-              L'association Culturelle INDANGABURUNDI est fondée par les jeunes burundaises.
+              INDANGABURUNDI est fondée par un groupe de jeunes burundais. Nous célébrons, préservons et réinventons la richesse culturelle burundaise pour les générations d'aujourd'hui et de demain.
             </p>
 
             {/* Timeline */}
