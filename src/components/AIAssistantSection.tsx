@@ -104,7 +104,6 @@ const AIAssistantSection = () => {
             
             <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-6">
               Assistant Culturel
-              <span className="text-secondary"> IA</span>
             </h2>
 
             <p className="text-muted-foreground text-base sm:text-lg mb-8 leading-relaxed">
