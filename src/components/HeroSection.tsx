@@ -34,7 +34,7 @@ const HeroSection = () => {
               Explorer la culture
             </a>
             <a href="#assistant" className="bg-primary-foreground/10 text-primary-foreground border border-primary-foreground/30 px-6 sm:px-8 py-3 sm:py-4 rounded-full font-medium transition-all duration-300 hover:bg-primary-foreground/20 text-center">
-              Parler à l'Assistant IA
+              Parler à l'Assistant INDANGABURUNDI
             </a>
           </div>
         </div>
