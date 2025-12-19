@@ -25,7 +25,7 @@ const ContactSection = () => {
   const contactOptions = [{
     icon: Mail,
     title: "Email",
-    description: "contact@indangaburundi.org",
+    description: "clubculturelindangaburundi@gmail.com",
     action: "Nous écrire",
     href: "mailto:contact@indangaburundi.org"
   }, {
