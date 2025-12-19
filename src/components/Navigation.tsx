@@ -19,7 +19,7 @@ const Navigation = () => {
     name: "Médias",
     href: "#media"
   }, {
-    name: "Assistant IA",
+    name: "Assistant Culturel",
     href: "#assistant"
   }, {
     name: "Contact",
@@ -30,7 +30,7 @@ const Navigation = () => {
         <div className="flex items-center justify-between h-16 sm:h-20">
           <a href="#" className="flex items-center gap-3">
             <img alt="Logo INDANGABURUNDI - Shaza Mu Karanga" src="/lovable-uploads/5ce7b6bf-73fc-42de-a3a1-4e9680cc765e.jpg" className="h-10 sm:h-12 w-auto opacity-100 shadow-lg rounded-md object-scale-down" />
-            <span className="font-display font-bold text-lg sm:text-xl">
+            <span className="font-display font-bold text-2xl sm:text-3xl">
               <span className="text-primary">INDANGA</span>
               <span className="text-secondary">BURUNDI</span>
             </span>
@@ -42,7 +42,7 @@ const Navigation = () => {
                 {link.name}
               </a>)}
             <a href="#assistant" className="btn-primary text-sm px-5 py-2.5">
-              Parler à l'IA
+              Discuter
             </a>
           </div>
 
@@ -59,7 +59,7 @@ const Navigation = () => {
                   {link.name}
                 </a>)}
               <a href="#assistant" onClick={() => setIsOpen(false)} className="btn-primary text-center mt-2">
-                Parler à l'IA
+                Discuter
               </a>
             </div>
           </div>}

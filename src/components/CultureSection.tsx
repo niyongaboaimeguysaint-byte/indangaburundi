@@ -74,7 +74,7 @@ const CultureSection = () => {
                 className="inline-flex items-center gap-2 text-primary font-medium hover:gap-4 transition-all duration-300"
               >
                 <Sparkles className="w-4 h-4" />
-                Comprendre avec l'IA
+                Comprendre avec l'Assistant
                 <ArrowRight className="w-4 h-4" />
               </a>
             </div>
