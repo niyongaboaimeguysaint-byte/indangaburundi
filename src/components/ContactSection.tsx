@@ -31,9 +31,9 @@ const ContactSection = () => {
   }, {
     icon: MessageSquare,
     title: "WhatsApp",
-    description: "+257 XX XXX XXX",
+    description: "+257 79 089 201",
     action: "Discuter",
-    href: "https://wa.me/25700000000"
+    href: "https://wa.me/25779089201"
   }, {
     icon: Users,
     title: "Partenariats",
