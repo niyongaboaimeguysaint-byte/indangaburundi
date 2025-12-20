@@ -30,8 +30,8 @@ const AIAssistantSection = () => {
   const [conversation, setConversation] = useState<Message[]>([
     {
       role: "assistant",
-      content: "Muraho! 🇧🇮✨\n\nJe suis l'Ambassadeur INDANGABURUNDI.\n\nQu'est-ce qui vous ferait plaisir aujourd'hui ?",
-      quickReplies: ["💃 Voir la danse", "🎤 Karaoké ?", "📩 Demander un devis"],
+      content: "Muraho! 🇧🇮✨\n\nOn ne fait pas que danser... On crée des souvenirs éternels.\n\nPrêt(e) à découvrir l'énergie du Burundi ? 😎",
+      quickReplies: ["✨ La mixité Homme/Femme", "🎵 Écouter le Karaoké", "📅 Vérifier disponibilités"],
     },
   ]);
 
@@ -42,24 +42,24 @@ const AIAssistantSection = () => {
 
   const quickActions = [
     {
-      icon: Music,
-      label: "🎶 Découvrir le Karaoké Tradi-Moderne",
-      message: "Je souhaite découvrir votre offre de Karaoké Tradi-Moderne pour mon événement.",
+      icon: Users,
+      label: "✨ Montre-moi la mixité Homme/Femme",
+      message: "Montrez-moi ce qui rend votre danse unique avec la mixité hommes/femmes !",
     },
     {
-      icon: Users,
-      label: "💃 Voir nos spectacles de Danse",
-      message: "Je voudrais en savoir plus sur vos spectacles de danse traditionnelle mixte.",
+      icon: Music,
+      label: "🎵 Écouter le Karaoké Tradi-Moderne",
+      message: "Je veux découvrir votre Karaoké Tradi-Moderne, ça a l'air incroyable !",
     },
     {
       icon: Crown,
-      label: "👑 Option Tambour & Prestige",
-      message: "Quelles sont vos prestations de prestige avec les tambours royaux?",
+      label: "👑 Option Prestige & Tambour Royal",
+      message: "Parlez-moi de l'option prestige avec les tambours royaux. Prêt pour le grand frisson !",
     },
     {
       icon: FileText,
-      label: "📩 Demander un devis",
-      message: "Je souhaite obtenir un devis personnalisé pour mon événement.",
+      label: "📅 Vérifier nos disponibilités",
+      message: "Je voudrais organiser un événement inoubliable. Quelles sont vos disponibilités ?",
     },
   ];
 
@@ -70,24 +70,27 @@ const AIAssistantSection = () => {
     }, 100);
   };
 
-  // Generate dynamic quick replies based on context
+  // Generate dynamic quick replies based on context - Elite Seller style
   const generateQuickReplies = (responseContent: string): string[] => {
     const lowerContent = responseContent.toLowerCase();
     
-    if (lowerContent.includes("danse") || lowerContent.includes("spectacle")) {
-      return ["📸 Voir une photo", "🎤 Et le karaoké ?", "📩 Devis"];
+    if (lowerContent.includes("danse") || lowerContent.includes("spectacle") || lowerContent.includes("mixité")) {
+      return ["📸 Montre-moi une photo !", "🎤 Et le karaoké ?", "🔥 Je suis convaincu(e) !"];
     }
-    if (lowerContent.includes("karaoké") || lowerContent.includes("karaoke")) {
-      return ["🎵 Écouter un extrait", "💃 Voir la danse", "📩 Devis"];
+    if (lowerContent.includes("karaoké") || lowerContent.includes("karaoke") || lowerContent.includes("chant")) {
+      return ["🎵 J'adore, en savoir plus", "💃 La danse aussi !", "📅 Réserver maintenant"];
     }
-    if (lowerContent.includes("tambour") || lowerContent.includes("ingoma")) {
-      return ["👑 Plus d'infos", "💃 Voir la danse", "📞 Prendre RDV"];
+    if (lowerContent.includes("tambour") || lowerContent.includes("ingoma") || lowerContent.includes("royal")) {
+      return ["👑 C'est grandiose !", "📋 Les formalités ?", "📞 Discutons-en"];
     }
-    if (lowerContent.includes("devis") || lowerContent.includes("contact") || lowerContent.includes("prix")) {
-      return ["📞 Appeler", "📩 Formulaire contact", "💬 Autres questions"];
+    if (lowerContent.includes("devis") || lowerContent.includes("contact") || lowerContent.includes("prix") || lowerContent.includes("discutons")) {
+      return ["📞 Appeler maintenant", "📩 Formulaire", "💬 Autres questions"];
+    }
+    if (lowerContent.includes("photo") || lowerContent.includes("vidéo") || lowerContent.includes("montre")) {
+      return ["😍 Impressionnant !", "📅 Réserver", "💬 Plus de détails"];
     }
     
-    return ["💃 La danse", "🎤 Le karaoké", "📩 Devis"];
+    return ["✨ La mixité unique", "🎤 Le karaoké chic", "📅 Disponibilités"];
   };
 
   const handleSendMessage = async (overrideMessage?: string) => {
@@ -262,8 +265,8 @@ const AIAssistantSection = () => {
                   <MessageCircle className="w-5 h-5 text-primary-foreground" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-primary-foreground text-sm sm:text-base">Ambassadeur INDANGABURUNDI</h3>
-                  <p className="text-primary-foreground/70 text-xs sm:text-sm">En ligne • Prêt à vous accompagner</p>
+                  <h3 className="font-semibold text-primary-foreground text-sm sm:text-base">Directeur Artistique</h3>
+                  <p className="text-primary-foreground/70 text-xs sm:text-sm">🟢 En ligne • Prêt à vous éblouir</p>
                 </div>
               </div>
             </div>
