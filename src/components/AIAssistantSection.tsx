@@ -1,19 +1,44 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Send, Sparkles, MessageCircle, Globe, Loader2, Music, Users, Crown, FileText } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 import logoGold from "@/assets/logo-gold.jpeg";
 
+interface Message {
+  role: "user" | "assistant";
+  content: string;
+  quickReplies?: string[];
+}
+
+// Typing indicator component
+const TypingIndicator = () => (
+  <div className="flex justify-start">
+    <div className="bg-muted rounded-2xl rounded-bl-none px-4 py-3 flex items-center gap-1">
+      <span className="w-2 h-2 bg-muted-foreground/50 rounded-full animate-bounce" style={{ animationDelay: "0ms" }} />
+      <span className="w-2 h-2 bg-muted-foreground/50 rounded-full animate-bounce" style={{ animationDelay: "150ms" }} />
+      <span className="w-2 h-2 bg-muted-foreground/50 rounded-full animate-bounce" style={{ animationDelay: "300ms" }} />
+    </div>
+  </div>
+);
+
 const AIAssistantSection = () => {
   const [message, setMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [isTyping, setIsTyping] = useState(false);
   const { toast } = useToast();
-  const [conversation, setConversation] = useState<{ role: "user" | "assistant"; content: string }[]>([
+  const messagesEndRef = useRef<HTMLDivElement>(null);
+  const [conversation, setConversation] = useState<Message[]>([
     {
       role: "assistant",
-      content: "Muraho! 🇧🇮✨ Je suis l'Ambassadeur Virtuel INDANGABURUNDI. Je suis là pour vous faire découvrir la richesse de la culture burundaise et vous accompagner dans l'organisation de vos événements. Que souhaitez-vous explorer aujourd'hui?",
+      content: "Muraho! 🇧🇮✨\n\nJe suis l'Ambassadeur INDANGABURUNDI.\n\nQu'est-ce qui vous ferait plaisir aujourd'hui ?",
+      quickReplies: ["💃 Voir la danse", "🎤 Karaoké ?", "📩 Demander un devis"],
     },
   ]);
+
+  // Auto-scroll to bottom when new messages arrive
+  useEffect(() => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [conversation, isTyping]);
 
   const quickActions = [
     {
@@ -45,6 +70,26 @@ const AIAssistantSection = () => {
     }, 100);
   };
 
+  // Generate dynamic quick replies based on context
+  const generateQuickReplies = (responseContent: string): string[] => {
+    const lowerContent = responseContent.toLowerCase();
+    
+    if (lowerContent.includes("danse") || lowerContent.includes("spectacle")) {
+      return ["📸 Voir une photo", "🎤 Et le karaoké ?", "📩 Devis"];
+    }
+    if (lowerContent.includes("karaoké") || lowerContent.includes("karaoke")) {
+      return ["🎵 Écouter un extrait", "💃 Voir la danse", "📩 Devis"];
+    }
+    if (lowerContent.includes("tambour") || lowerContent.includes("ingoma")) {
+      return ["👑 Plus d'infos", "💃 Voir la danse", "📞 Prendre RDV"];
+    }
+    if (lowerContent.includes("devis") || lowerContent.includes("contact") || lowerContent.includes("prix")) {
+      return ["📞 Appeler", "📩 Formulaire contact", "💬 Autres questions"];
+    }
+    
+    return ["💃 La danse", "🎤 Le karaoké", "📩 Devis"];
+  };
+
   const handleSendMessage = async (overrideMessage?: string) => {
     const messageToSend = overrideMessage || message;
     if (!messageToSend.trim() || isLoading) return;
@@ -58,6 +103,11 @@ const AIAssistantSection = () => {
     ]);
     
     setIsLoading(true);
+    setIsTyping(true);
+    
+    // Simulate typing delay for natural feel
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    setIsTyping(false);
     
     try {
       const messages = [
@@ -91,20 +141,23 @@ const AIAssistantSection = () => {
       
       // Check if the response mentions contacting or getting a quote
       if (responseContent.toLowerCase().includes('formulaire de contact') || 
-          responseContent.toLowerCase().includes('devis personnalisé') ||
-          responseContent.toLowerCase().includes('contacter notre direction')) {
+          responseContent.toLowerCase().includes('devis') ||
+          responseContent.toLowerCase().includes('contacter') ||
+          responseContent.toLowerCase().includes('vive voix')) {
         responseContent += '\n\n[Cliquez ici pour accéder au formulaire de contact](#contact)';
       }
 
+      const quickReplies = generateQuickReplies(responseContent);
+
       setConversation((prev) => [
         ...prev,
-        { role: "assistant", content: responseContent },
+        { role: "assistant", content: responseContent, quickReplies },
       ]);
     } catch (error) {
       console.error('Error:', error);
       setConversation((prev) => [
         ...prev,
-        { role: "assistant", content: "Désolé, je ne peux pas répondre pour le moment. Veuillez réessayer." },
+        { role: "assistant", content: "Oups ! Petit souci technique. 😅\n\nOn réessaye ?", quickReplies: ["🔄 Réessayer"] },
       ]);
       toast({
         title: "Erreur",
@@ -216,31 +269,55 @@ const AIAssistantSection = () => {
             </div>
 
             {/* Chat Messages */}
-            <div className="h-64 sm:h-80 overflow-y-auto p-4 sm:p-6 space-y-4">
+            <div className="h-72 sm:h-96 overflow-y-auto p-4 sm:p-6 space-y-3">
               {conversation.map((msg, index) => (
-                <div
-                  key={index}
-                  className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}
-                >
+                <div key={index} className="space-y-2">
                   <div
-                    className={`max-w-[85%] rounded-2xl px-4 py-3 text-sm sm:text-base ${
-                      msg.role === "user"
-                        ? "bg-primary text-primary-foreground rounded-br-none"
-                        : "bg-muted text-foreground rounded-bl-none"
-                    }`}
+                    className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"} animate-fade-in`}
                   >
-                    {msg.role === "assistant" ? renderMessage(msg.content) : msg.content}
+                    <div
+                      className={`max-w-[80%] px-4 py-3 text-sm sm:text-base whitespace-pre-line shadow-sm ${
+                        msg.role === "user"
+                          ? "bg-primary text-primary-foreground rounded-2xl rounded-br-sm"
+                          : "bg-muted text-foreground rounded-2xl rounded-bl-sm"
+                      }`}
+                    >
+                      {msg.role === "assistant" ? renderMessage(msg.content) : msg.content}
+                    </div>
                   </div>
+                  
+                  {/* Dynamic Quick Replies after assistant messages */}
+                  {msg.role === "assistant" && msg.quickReplies && msg.quickReplies.length > 0 && index === conversation.length - 1 && (
+                    <div className="flex flex-wrap gap-2 pl-2 animate-fade-in">
+                      {msg.quickReplies.map((reply, replyIndex) => (
+                        <button
+                          key={replyIndex}
+                          onClick={() => handleQuickAction(reply)}
+                          disabled={isLoading}
+                          className="px-3 py-1.5 text-xs sm:text-sm bg-card border border-primary/30 text-primary rounded-full hover:bg-primary/10 hover:border-primary transition-all duration-200 disabled:opacity-50"
+                        >
+                          {reply}
+                        </button>
+                      ))}
+                    </div>
+                  )}
                 </div>
               ))}
-              {isLoading && (
-                <div className="flex justify-start">
-                  <div className="bg-muted text-foreground rounded-2xl rounded-bl-none px-4 py-3 flex items-center gap-2">
+              
+              {/* Typing Indicator */}
+              {isTyping && <TypingIndicator />}
+              
+              {/* Loading state after typing */}
+              {isLoading && !isTyping && (
+                <div className="flex justify-start animate-fade-in">
+                  <div className="bg-muted text-muted-foreground rounded-2xl rounded-bl-sm px-4 py-3 flex items-center gap-2 text-sm">
                     <Loader2 className="w-4 h-4 animate-spin" />
-                    <span className="text-sm">Réflexion en cours...</span>
+                    <span>Rédaction...</span>
                   </div>
                 </div>
               )}
+              
+              <div ref={messagesEndRef} />
             </div>
 
             {/* Chat Input */}
