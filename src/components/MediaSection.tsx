@@ -1,4 +1,5 @@
-import { Play, Image as ImageIcon, Music, Video } from "lucide-react";
+import { useState } from "react";
+import { Play, Image as ImageIcon, Music, Video, X } from "lucide-react";
 import heroImage from "@/assets/hero-drums.jpg";
 import danceImage from "@/assets/dance-culture.jpg";
 import drumImage from "@/assets/drum-detail.jpg";
@@ -58,6 +59,21 @@ const mediaItems: MediaItem[] = [
 ];
 
 const MediaSection = () => {
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [selectedImage, setSelectedImage] = useState<MediaItem | null>(null);
+
+  const openLightbox = (item: MediaItem) => {
+    setSelectedImage(item);
+    setLightboxOpen(true);
+    document.body.style.overflow = "hidden";
+  };
+
+  const closeLightbox = () => {
+    setLightboxOpen(false);
+    setSelectedImage(null);
+    document.body.style.overflow = "auto";
+  };
+
   return (
     <section id="media" className="section-padding bg-muted">
       <div className="max-w-7xl mx-auto">
@@ -95,7 +111,8 @@ const MediaSection = () => {
           {mediaItems.map((item) => (
             <div
               key={item.id}
-              className="group relative rounded-2xl overflow-hidden bg-card shadow-md hover:shadow-xl transition-all duration-500"
+              onClick={() => openLightbox(item)}
+              className="group relative rounded-2xl overflow-hidden bg-card shadow-md hover:shadow-xl transition-all duration-500 cursor-pointer"
             >
               <div className="aspect-[4/3] overflow-hidden">
                 <img
@@ -127,6 +144,11 @@ const MediaSection = () => {
                 ) : (
                   <ImageIcon className="w-5 h-5 text-primary" />
                 )}
+              </div>
+              
+              {/* Click to expand indicator */}
+              <div className="absolute bottom-4 right-4 px-3 py-1.5 rounded-full bg-card/90 backdrop-blur-sm text-xs font-medium text-foreground opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                Cliquer pour agrandir
               </div>
             </div>
           ))}
@@ -163,6 +185,44 @@ const MediaSection = () => {
           </div>
         </div>
       </div>
+
+      {/* Lightbox Modal */}
+      {lightboxOpen && selectedImage && (
+        <div 
+          className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center p-4 animate-fade-in"
+          onClick={closeLightbox}
+        >
+          <button
+            onClick={closeLightbox}
+            className="absolute top-6 right-6 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors z-10"
+            aria-label="Fermer"
+          >
+            <X className="w-6 h-6 text-white" />
+          </button>
+          
+          <div 
+            className="max-w-5xl max-h-[90vh] w-full flex flex-col items-center"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <img
+              src={selectedImage.thumbnail}
+              alt={selectedImage.title}
+              className="max-w-full max-h-[75vh] object-contain rounded-lg shadow-2xl"
+            />
+            <div className="mt-4 text-center">
+              <h3 className="text-xl font-display font-semibold text-white mb-2">
+                {selectedImage.title}
+              </h3>
+              <p className="text-white/70 text-sm">
+                {selectedImage.description}
+              </p>
+              <span className="inline-block mt-2 px-3 py-1 bg-secondary/30 text-secondary text-xs rounded-full">
+                {selectedImage.category}
+              </span>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 };
