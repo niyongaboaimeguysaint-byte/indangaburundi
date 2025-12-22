@@ -4,8 +4,9 @@ const HeroSection = () => {
   return <section id="hero" className="relative min-h-screen flex items-center">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
-        <img src={heroImage} alt="Tambourinaires du Burundi" className="w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/80 to-primary/60" />
+        <img src={heroImage} alt="Tambourinaires du Burundi jouant les Ingoma sacrées - UNESCO" className="w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-black/50" />
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/70 to-transparent" />
       </div>
 
       {/* Content */}
