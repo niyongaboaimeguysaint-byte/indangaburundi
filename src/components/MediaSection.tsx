@@ -3,6 +3,7 @@ import heroImage from "@/assets/hero-drums.jpg";
 import danceImage from "@/assets/dance-culture.jpg";
 import drumImage from "@/assets/drum-detail.jpg";
 import culturePortrait from "@/assets/culture-portrait.jpg";
+import danseSpectacle from "@/assets/danse-spectacle-live.jpg";
 
 interface MediaItem {
   id: number;
@@ -45,6 +46,14 @@ const mediaItems: MediaItem[] = [
     description: "Interview sur la transmission des traditions",
     thumbnail: culturePortrait,
     category: "Témoignage",
+  },
+  {
+    id: 5,
+    type: "image",
+    title: "Spectacle Live - Danse Mixte",
+    description: "Notre troupe mixte en pleine performance sur scène",
+    thumbnail: danseSpectacle,
+    category: "Danse",
   },
 ];
 
